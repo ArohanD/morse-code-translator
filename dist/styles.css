@@ -1,0 +1,59 @@
+html {
+  font-family: Roboto;
+  color: whitesmoke;
+}
+
+body {
+  background: linear-gradient(45deg, rgb(207, 145, 0) 30%, #FF8E53 90%);
+
+}
+
+#morse_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95vh;
+}
+
+.message_box {
+  min-height: 20vh;
+  max-height: 30vh;
+  width: 100%;
+  border: 1px solid whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+  border-radius: 10px;
+  background-color: #B37920;
+}
+
+#morse_input {
+  height: 40vh;
+  width: 100%;
+  background: linear-gradient(45deg, #2196F3 30%, rgb(27, 180, 214) 90%);
+  border-radius: 10px;
+  color: whitesmoke;
+}
+
+.morse_current {
+  font-size: 3em;
+  border-radius: 10px;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.preview_left {
+  max-width: 30%;
+  margin-right: 3%;
+  border-radius: 10px;
+}
+
+.header {
+  align-self: center;
+  /* text-shadow: 2px 2px 10px grey; */
+}
