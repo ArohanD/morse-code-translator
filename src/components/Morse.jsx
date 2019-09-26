@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import { useTimer } from 'use-timer';
-import { endianness } from 'os';
 import Button from '@material-ui/core/Button';
 import wordData from '../../db/20k.js'
 import Predictions from '../components/Predictions.jsx'
+import Backspace from '@material-ui/icons/Backspace';
+import TouchApp from '@material-ui/icons/TouchApp';
+import Menu from '@material-ui/icons/Menu';
+import CustomDrawer from './Drawer.jsx'
 
 const morseLib = {
   ".-": "A",
@@ -63,7 +66,6 @@ class Morse extends Component {
     }
 
     translateTime(time) {
-      //console.log(time);
       let indicator = (time < this.state.tap_sensitivity) ? '.' : '-';
       this.setState({
         morseMessage: this.state.morseMessage + indicator,
@@ -86,8 +88,14 @@ class Morse extends Component {
       }
     }
 
-    renderSpace() {
+    renderLetter() {
       this.translate(this.state.morseMessage)
+    }
+
+    renderSpaces() {
+      this.setState({
+        message: this.state.message + ' '
+      })
     }
 
     updatePredictions(string) {
@@ -107,15 +115,14 @@ class Morse extends Component {
       }
       this.setState({
         predictions: {
-          predictionOne: firstPrediction,
-          predictionTwo: secondPrediction,
-          predictionThree: thirdPrediction
+          predictionOne: firstPrediction.toUpperCase(),
+          predictionTwo: secondPrediction.toUpperCase(),
+          predictionThree: thirdPrediction.toUpperCase()
         }
       })
     }
 
     selectPrediction(word) {
-      console.log(word)
       let newMessageArray = this.state.message.split(' ');
       newMessageArray.pop();
       let newMessage = newMessageArray.join(' ') + ' ' + word + ' ';
@@ -130,6 +137,12 @@ class Morse extends Component {
       })
     }
 
+    handleBackSpace() {
+      this.setState({
+        message: this.state.message.substring(0, this.state.message.length - 1)
+      })
+    }
+
     render() {
         return (
             <div id='morse_container'>
@@ -141,10 +154,18 @@ class Morse extends Component {
               </div>
               <Predictions predictions={this.state.predictions} 
                            selectPrediction={this.selectPrediction.bind(this)}/>
-              <MorseInput translateTime={this.translateTime.bind(this)}
-                          space_sensitivity={this.state.space_sensitivity}
-                          translate={this.translate}
-                          renderSpace={this.renderSpace.bind(this)}/>
+              <div id='input_container'>
+                <MorseInput translateTime={this.translateTime.bind(this)}
+                            space_sensitivity={this.state.space_sensitivity}
+                            translate={this.translate}
+                            renderLetter={this.renderLetter.bind(this)}
+                            renderSpaces={this.renderSpaces.bind(this)}/>
+                <div id='alternate_inputs'>
+                  <CustomDrawer />
+                  <Button id='red_button' variant="contained"
+                          onClick={this.handleBackSpace.bind(this)}><Backspace /></Button>
+                </div>
+              </div>
             </div>
         )
     }
@@ -157,19 +178,24 @@ const MorseInput = (props) => {
     <Button variant="contained" id='morse_input'
          onTouchStart={() => {
           charStart();
-          window.clearTimeout(window.timeOutID);
+          window.clearTimeout(window.timeOutLetters);
+          window.clearTimeout(window.timeOutSpaces);
          }}
          onTouchEnd={() => {
           charPause();
           props.translateTime(charTime / 10);
           charReset();
 
-          window.timeOutID = window.setTimeout( function () {
-            props.renderSpace()
-          }.bind(this), 500)
+          window.timeOutLetters = window.setTimeout( function () {
+            props.renderLetter()
+          }.bind(this), 800)
+
+          window.timeOutSpaces = window.setTimeout( function () {
+            props.renderSpaces()
+          }.bind(this), 2000)
          }}
-         >Tap Here</Button>
+         ><TouchApp /></Button>
   )
 }
 
-export default Morse;
+export {Morse};
