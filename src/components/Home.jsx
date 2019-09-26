@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom'
 
 class Home extends Component {
     constructor(props) {
@@ -7,7 +8,9 @@ class Home extends Component {
     }
     render() {
         return (
-            <div>You are on the home page</div>
+            <NavLink to='/Translator'>
+                <div id='home_container'>You are on the home page</div>  
+            </NavLink>
         )
     }
 }

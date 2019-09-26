@@ -1,5 +1,4 @@
 let data = [
-
   'the',
   'of',
   'and',
