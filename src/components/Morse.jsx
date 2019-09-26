@@ -7,45 +7,7 @@ import Backspace from '@material-ui/icons/Backspace';
 import TouchApp from '@material-ui/icons/TouchApp';
 import Menu from '@material-ui/icons/Menu';
 import CustomDrawer from './Drawer.jsx'
-
-const morseLib = {
-  ".-": "A",
-  "-...": "B",
-  "-.-.": "C",
-  "-..": "D",
-  ".": "E",
-  "..-.": "F",
-  "--.": "G",
-  "....": "H",
-  "..": "I",
-  ".---": "J",
-  "-.-": "K",
-  ".-..": "L",
-  "--": "M",
-  "-.": "N",
-  "---": "O",
-  ".--.": "P",
-  "--.-": "Q",
-  ".-.": "R",
-  "...": "S",
-  "-": "T",
-  "..-": "U",
-  "...-": "V",
-  ".--": "W",
-  "-..-": "X",
-  "-.--": "Y",
-  "--..": "Z",
-  "-----": "0",
-  ".----": "1",
-  "..---": "2",
-  "...--": "3",
-  "....-": "4",
-  ".....": "5",
-  "-....": "6",
-  "--...": "7",
-  "---..": "8",
-  "----.": "9"
-}
+import {morseLib} from './Dictionary.jsx'
 
 class Morse extends Component {
     constructor(props) {
@@ -146,7 +108,7 @@ class Morse extends Component {
     render() {
         return (
             <div id='morse_container'>
-              <h1 className='header'>Morse</h1>
+              <h1 className='header'>Morse Interpreter</h1>
               <div className='message_box main_message'>{this.state.message}</div>
               <div className='input_container'>
                 <div className='message_box morse_current preview_left'>{morseLib[this.state.morseMessage]}</div>

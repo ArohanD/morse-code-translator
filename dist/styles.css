@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  height: 100vh;
   background: linear-gradient(45deg, rgb(207, 145, 0) 30%, #FF8E53 90%);
 }
 
@@ -11,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 95vh;
+  height: 100%;
 }
 
 .message_box {
@@ -55,8 +56,9 @@ body {
 }
 
 .header {
-  align-self: center;
+  /* align-self: center; */
   /* text-shadow: 2px 2px 10px grey; */
+  margin: 1%;
 }
 
 .predictions {
@@ -105,11 +107,61 @@ body {
 #home_container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   justify-content: center;
   align-items: center;
 }
 
 #hero_logo {
-  font-family: 'Julius Sans One', sans-serif;
+  text-decoration: none;
+  color: #f5f5f5;
+  font-weight: 100;
+  font-size: 75px;
+  text-align: center;
+}
+
+.home_nav_button {
+  width: 120px;
+  background: linear-gradient(45deg, #2196F3 30%, rgb(27, 180, 214) 90%);
+  color: whitesmoke !important;
+}
+
+.home_links {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-between;
+}
+
+.dictionary_entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  letter-spacing: 3px;
+  background-color: #B37920;
+  width: 80px;
+  border-radius: 10px;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+
+.dictionary_entry_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+  margin-top: 20px;
+  margin-bottom: 45%;
+}
+
+.dictionary_text {
+  margin: 10px auto;
+}
+
+.fixed_menu {
+  position: fixed;
+  top: 80%;
+  left: 80%;
 }

@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/icons/Menu';
 import {pages} from '../router.jsx'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
   list: {
@@ -37,11 +37,9 @@ const TemporaryDrawer = () => {
     <div className={classes.fullList}>
       <List>
         {pages.map((text, index) => (
-          <NavLink to={`/${text}`} key={text}>
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          </NavLink>
+          <ListItem button key={text} component={Link} to={`/${text}`}>
+            <ListItemText primary={text} />
+          </ListItem>
         ))}
       </List>
     </div>
