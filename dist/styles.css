@@ -19,7 +19,7 @@ body {
   min-height: 20vh;
   max-height: 30vh;
   width: 100%;
-  border: 1px solid whitesmoke;
+  /* border: 1px solid whitesmoke; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,6 +27,7 @@ body {
   overflow: scroll;
   border-radius: 10px;
   background-color: #B37920;
+  margin: 1%;
 }
 
 #morse_input {
@@ -35,6 +36,8 @@ body {
   background: linear-gradient(45deg, #2196F3 30%, rgb(27, 180, 214) 90%);
   border-radius: 10px;
   color: whitesmoke;
+  margin: 1%;
+  align-self: center;
 }
 
 .morse_current {
@@ -49,11 +52,25 @@ body {
 
 .preview_left {
   max-width: 30%;
-  margin-right: 3%;
+  margin-right: 2%;
   border-radius: 10px;
 }
 
 .header {
   align-self: center;
   /* text-shadow: 2px 2px 10px grey; */
+}
+
+.predictions {
+  display: flex;
+  flex-direction: row;
+}
+
+.prediction {
+  min-height: 80px;
+}
+
+.main_message {
+  align-self: center;
+  width: 98%
 }
