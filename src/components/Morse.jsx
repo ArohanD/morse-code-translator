@@ -114,6 +114,22 @@ class Morse extends Component {
       })
     }
 
+    selectPrediction(word) {
+      console.log(word)
+      let newMessageArray = this.state.message.split(' ');
+      newMessageArray.pop();
+      let newMessage = newMessageArray.join(' ') + ' ' + word + ' ';
+      this.setState({
+        message: newMessage,
+        currentWord: '',
+        predictions: {
+          predictionOne: '',
+          predictionTwo: '',
+          predictionThree: ''
+        },
+      })
+    }
+
     render() {
         return (
             <div id='morse_container'>
@@ -123,7 +139,8 @@ class Morse extends Component {
                 <div className='message_box morse_current preview_left'>{morseLib[this.state.morseMessage]}</div>
                 <div className='message_box morse_current'>{this.state.morseMessage}</div>
               </div>
-              <Predictions predictions={this.state.predictions} />
+              <Predictions predictions={this.state.predictions} 
+                           selectPrediction={this.selectPrediction.bind(this)}/>
               <MorseInput translateTime={this.translateTime.bind(this)}
                           space_sensitivity={this.state.space_sensitivity}
                           translate={this.translate}
