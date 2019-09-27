@@ -3,6 +3,7 @@ import CustomDrawer from './Drawer.jsx'
 import Button from '@material-ui/core/Button';
 import { useTimer } from 'use-timer';
 import TouchApp from '@material-ui/icons/TouchApp';
+import SpeakerPhone from '@material-ui/icons/SpeakerPhone';
 
 class DualInput extends React.Component {
   constructor(props){
@@ -22,20 +23,27 @@ class DualInput extends React.Component {
     })
   }
 
-      render() {
-        return (
-          <div id='morse_container'>
-            <h1 className='header'>Dual Input</h1>
-            <div className='message_box main_message dual_message'>{this.state.message}</div>
-            <div id='input_container'>
-              <UserInput translateTime={this.translateTime.bind(this)}/>
-              <div id='alternate_inputs'>
-                <CustomDrawer />
-              </div>
-            </div>
+  handleSpeech() {
+    let utterance = new SpeechSynthesisUtterance(this.state.message);
+    window.speechSynthesis.speak(utterance);
+  }
+
+  render() {
+    return (
+      <div id='dualInput_container'>
+        <h1 className='header'>Dual Input</h1>
+        <div className='message_box main_message dual_message'>{this.state.message}</div>
+        <div id='input_container'>
+          <UserInput translateTime={this.translateTime.bind(this)}/>
+          <div id='alternate_inputs'>
+            <CustomDrawer />
+            <Button id='green_button' variant="contained"
+                          onClick={this.handleSpeech.bind(this)}><SpeakerPhone /></Button>
           </div>
-        )
-    }
+        </div>
+      </div>
+    )
+  }
 }
 
 const UserInput = (props) => {

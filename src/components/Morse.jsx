@@ -5,7 +5,7 @@ import wordData from '../../db/20k.js'
 import Predictions from '../components/Predictions.jsx'
 import Backspace from '@material-ui/icons/Backspace';
 import TouchApp from '@material-ui/icons/TouchApp';
-import Menu from '@material-ui/icons/Menu';
+import SpeakerPhone from '@material-ui/icons/SpeakerPhone';
 import CustomDrawer from './Drawer.jsx'
 import {morseLib} from './Dictionary.jsx'
 
@@ -107,6 +107,11 @@ class Morse extends Component {
       })
     }
 
+    handleSpeech() {
+      let utterance = new SpeechSynthesisUtterance(this.state.message);
+      window.speechSynthesis.speak(utterance);
+    }
+
     render() {
         return (
 
@@ -132,6 +137,8 @@ class Morse extends Component {
                             spaceSensitivity={this.state.spaceSensitivity}/>
                 <div id='alternate_inputs'>
                   <CustomDrawer />
+                  <Button id='green_button' variant="contained"
+                          onClick={this.handleSpeech.bind(this)}><SpeakerPhone /></Button>
                   <Button id='red_button' variant="contained"
                           onClick={this.handleBackSpace.bind(this)}><Backspace /></Button>
                 </div>
