@@ -37,7 +37,9 @@ const TemporaryDrawer = () => {
     <div className={classes.fullList}>
       <List>
         {pages.map((text, index) => (
-          <ListItem button key={text} component={Link} to={`/${text}`}>
+          <ListItem button key={text} 
+                    component={Link} 
+                    to={text === 'Dual Input' ? 'DualInput' : `/${text}`}>
             <ListItemText primary={text} />
           </ListItem>
         ))}

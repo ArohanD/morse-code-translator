@@ -129,7 +129,7 @@ body {
 .home_links {
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  height: 40vh;
   justify-content: space-between;
 }
 
@@ -213,4 +213,18 @@ body {
 
 #settings_h1 {
   align-self: flex-start;
+}
+
+.dual_message {
+  font-size: 3em;
+}
+
+.input_field_label {
+  color: whitesmoke !important;
+  width: 40%;
+}
+
+.settings_input_equalizer {
+  display: flex;
+  justify-content: space-between;
 }

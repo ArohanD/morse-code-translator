@@ -5,8 +5,9 @@ import {Morse as Translator} from './components/Morse.jsx'
 import {Guide} from './components/Guide.jsx'
 import { Dictionary } from "./components/Dictionary.jsx";
 import Settings from './components/Settings.jsx'
+import DualInput from './components/DualInput.jsx'
 
-const pages = ['Guide', 'Dictionary', 'Translator', 'Settings',];
+const pages = ['Guide', 'Dictionary', 'Translator', 'Dual Input', 'Settings'];
 
 function RouteManager() {
   return (
@@ -17,6 +18,7 @@ function RouteManager() {
       <Route path='/Guide' component={Guide} />
       <Route path='/Dictionary' component={Dictionary} />
       <Route path='/Settings' component={Settings} />
+      <Route path='/DualInput' component={DualInput} />
 
     </Router>
   );

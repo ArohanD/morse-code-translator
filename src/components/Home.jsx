@@ -25,6 +25,11 @@ const Home = (props) => {
                 <Button variant="contained" 
                         className={'home_nav_button'}
                         component={Link}
+                        to={'/DualInput'}>
+                        Dual Input</Button>
+                <Button variant="contained" 
+                        className={'home_nav_button'}
+                        component={Link}
                         to={'/Settings'}>
                         Settings</Button>
             </div>

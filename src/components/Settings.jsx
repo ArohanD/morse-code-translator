@@ -1,5 +1,5 @@
 import React from 'react'
-import { Slider } from '@material-ui/core';
+import { Slider, TextField } from '@material-ui/core';
 import CustomDrawer from './Drawer.jsx'
 
 const Settings = (props) => {
@@ -34,6 +34,24 @@ const Settings = (props) => {
           min={100}
           max={2000}
         />
+        <h3>Dual Input Fields</h3>
+        <div className={'settings_input_equalizer'}>
+          <TextField
+            className={'input_field_label'}
+            label="Short Press"
+            value={'Yes'}
+            margin="normal"
+            variant="outlined"
+          />
+          <TextField
+            className={'input_field_label'}
+            label="Long Press"
+            value={'No'}
+            margin="normal"
+            variant="outlined"
+          />
+
+        </div>
       </div>
       <div className={'fixed_menu'}>
         <CustomDrawer />
