@@ -49,7 +49,7 @@ const Dictionary = () => {
       <h1 className='header'>Dictionary</h1>
       <div className={'dictionary_entry_container'}>
         {
-          keyArray.map((code, index) => {
+          keyArray.map((code) => {
             return (
               <div key={morseLib[code]} className={'dictionary_entry'}>
                 <span className={'dictionary_text'}>{morseLib[code]}</span>

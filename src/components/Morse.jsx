@@ -17,13 +17,15 @@ class Morse extends Component {
           message: '',
           tap_sensitivity: 0.2,
           space_sensitivity: 1,
-          backspace_sensitivity: 2,
           predictions: {
             predictionOne: '',
             predictionTwo: '',
             predictionThree: ''
           },
-          currentWord: ''
+          currentWord: '',
+          letterSensitivity: 800,
+          spaceSensitivity: 2000,
+          renderSettings: false
         };
     }
 
@@ -107,6 +109,10 @@ class Morse extends Component {
 
     render() {
         return (
+
+          this.state.renderSettings 
+          ? null 
+          :
             <div id='morse_container'>
               <h1 className='header'>Morse Interpreter</h1>
               <div className='message_box main_message'>{this.state.message}</div>
@@ -115,13 +121,15 @@ class Morse extends Component {
                 <div className='message_box morse_current'>{this.state.morseMessage}</div>
               </div>
               <Predictions predictions={this.state.predictions} 
-                           selectPrediction={this.selectPrediction.bind(this)}/>
+                          selectPrediction={this.selectPrediction.bind(this)}/>
               <div id='input_container'>
                 <MorseInput translateTime={this.translateTime.bind(this)}
                             space_sensitivity={this.state.space_sensitivity}
                             translate={this.translate}
                             renderLetter={this.renderLetter.bind(this)}
-                            renderSpaces={this.renderSpaces.bind(this)}/>
+                            renderSpaces={this.renderSpaces.bind(this)}
+                            letterSensitivity={this.state.letterSensitivity}
+                            spaceSensitivity={this.state.spaceSensitivity}/>
                 <div id='alternate_inputs'>
                   <CustomDrawer />
                   <Button id='red_button' variant="contained"
@@ -150,11 +158,11 @@ const MorseInput = (props) => {
 
           window.timeOutLetters = window.setTimeout( function () {
             props.renderLetter()
-          }.bind(this), 800)
+          }.bind(this), props.letterSensitivity)
 
           window.timeOutSpaces = window.setTimeout( function () {
             props.renderSpaces()
-          }.bind(this), 2000)
+          }.bind(this), props.spaceSensitivity)
          }}
          ><TouchApp /></Button>
   )
