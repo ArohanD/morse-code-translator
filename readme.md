@@ -17,6 +17,8 @@ npm start
 
 I'm actively working on the following features:
 
+- Desktop functionality
+- Other inputs, like a simple yes/no
 - Full WAI-ARIA compliance (mostly there minus testing)
 - Add global state so settings actually stick
 - Utilize a database to improve predictive text based on global popular phrases
