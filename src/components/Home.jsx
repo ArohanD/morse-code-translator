@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 
 const Home = (props) => {
+
     return (
         <div id='home_container'>
             <h1 id='hero_logo'>Vocal <br /> Codes</h1>

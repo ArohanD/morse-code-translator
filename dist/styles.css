@@ -238,10 +238,15 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 #dualInput_container {
   display: flex;
   flex-direction: column;
   height: 95vh;
   justify-content: space-between;
 
+}
+
+.dualInputModifierContainer{
+  
 }

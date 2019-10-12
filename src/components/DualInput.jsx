@@ -17,7 +17,10 @@ class DualInput extends React.Component {
   }
 
   translateTime(time) {
-    let indicator = (time < this.state.tap_sensitivity) ? 'YES' : 'NO';
+    let storage = JSON.parse(localStorage.getItem('vocal_codes_settings'))
+    let shortPress = storage.dualInputShortPress;
+    let longPress = storage.dualInputLongPress;
+    let indicator = (time < this.state.tap_sensitivity) ? shortPress : longPress;
     this.setState({
       message: this.state.morseMessage + indicator,
     })

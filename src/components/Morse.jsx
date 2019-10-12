@@ -150,6 +150,8 @@ class Morse extends Component {
 
 const MorseInput = (props) => {
   const { time: charTime, start: charStart, pause: charPause, reset: charReset } = useTimer({interval: 100});
+  const settings = JSON.parse(localStorage.getItem('vocal_codes_settings'));
+  console.log(settings)
 
   return (
     <Button variant="contained" id='morse_input'
