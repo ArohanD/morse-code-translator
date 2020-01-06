@@ -5,6 +5,8 @@ import { useTimer } from 'use-timer';
 import TouchApp from '@material-ui/icons/TouchApp';
 import SpeakerPhone from '@material-ui/icons/SpeakerPhone';
 
+const settings = JSON.parse(localStorage.getItem('vocal_codes_settings'))
+
 class DualInput extends React.Component {
   constructor(props){
     super(props)
@@ -12,7 +14,7 @@ class DualInput extends React.Component {
     this.state = {
       morseMessage: '',
       message: '',
-      tap_sensitivity: 0.2,
+      tap_sensitivity: settings.timeForDotToDash / 1000,
     }
   }
 
@@ -21,6 +23,7 @@ class DualInput extends React.Component {
     let shortPress = storage.dualInputShortPress ? storage.dualInputShortPress : 'Yes';
     let longPress = storage.dualInputLongPress ? storage.dualInputLongPress : 'No';
     let indicator = (time < this.state.tap_sensitivity) ? shortPress : longPress;
+    console.log(this.state.tap_sensitivity)
     this.setState({
       message: this.state.morseMessage + indicator,
     })

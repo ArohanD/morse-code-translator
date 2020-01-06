@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {RouteManager as Root} from'./router.jsx';
-//if you have a theme library, import it here
 
 const defaultSettings = {
-  timeBetweenWords: 800,
+  timeBetweenWords: 1000,
   timeBetweenSpaces: 2000,
   timeForDotToDash: 200,
   dualInputShortPress: 'Yes',

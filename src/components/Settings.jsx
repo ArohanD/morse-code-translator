@@ -4,11 +4,13 @@ import CustomDrawer from './Drawer.jsx'
 
 
 const Settings = (props) => {
+  console.log(props)
   
   const saveSettings = (value, property) => {
     const store = JSON.parse(localStorage.getItem('vocal_codes_settings'));
     store[property] = value;
-    localStorage.setItem('vocal_codes_settings', JSON.stringify(store))
+    localStorage.setItem('vocal_codes_settings', JSON.stringify(store));
+    location.reload();
   }
   
   const saveTextChange = (event, property) => {
@@ -18,19 +20,18 @@ const Settings = (props) => {
     localStorage.setItem('vocal_codes_settings', JSON.stringify(store))
   }
   const store = JSON.parse(localStorage.getItem('vocal_codes_settings'));
-  console.log(store)
 
   return(
     <div id='settings_container'>
       <h1 id='settings_h1'>Settings</h1>
       <div id='settings_forms'>
-        <h3>Time between words (milliseconds)</h3>
+        <h3>Time given to input letters (milliseconds, must be less than time between spaces)</h3>
         <Slider className={'settings_slider'}
           defaultValue={store.timeBetweenWords}
           valueLabelDisplay="auto"
           step={100}
           marks
-          min={500}
+          min={100}
           max={2000}
           onChangeCommitted={(e, value) => saveSettings(value, 'timeBetweenWords')}
         />
@@ -44,7 +45,7 @@ const Settings = (props) => {
           max={6000}
           onChangeCommitted={(e, value) => saveSettings(value, 'timeBetweenSpaces')}
         />
-        <h3>Time for dot to become dash (ms)</h3>
+        <h3>Time for dot to become dash (ms, also used for dual input change)</h3>
         <Slider className={'settings_slider'}
           defaultValue={store.timeForDotToDash}
           valueLabelDisplay="auto"
@@ -57,7 +58,6 @@ const Settings = (props) => {
         <h3>Dual Input Fields</h3>
         <div className={'settings_input_equalizer'}>
           <div className={'dualInputModifierContainer'}>
-            <div>{store.dualInputShortPress}</div>
             <TextField
               className={'input_field_label'}
               label="Short Press"
