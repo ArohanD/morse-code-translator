@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: 'ec2-54-173-143-128.compute-1.amazonaws.com',
+      host: 'ec2-3-94-89-241.compute-1.amazonaws.com',
       key: '~/.ssh/vocal_codes.pem',
       ref: 'origin/master',
       repo: 'git@github.com:ArohanD/morse-code-translator.git',
