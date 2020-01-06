@@ -4,7 +4,6 @@ import CustomDrawer from './Drawer.jsx'
 
 
 const Settings = (props) => {
-  console.log(props)
   
   const saveSettings = (value, property) => {
     const store = JSON.parse(localStorage.getItem('vocal_codes_settings'));
