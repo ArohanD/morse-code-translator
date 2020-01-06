@@ -2,6 +2,7 @@ import React from 'react'
 import CustomDrawer from './Drawer.jsx'
 
 const morseLib = {
+  "": "",
   ".-": "A",
   "-...": "B",
   "-.-.": "C",

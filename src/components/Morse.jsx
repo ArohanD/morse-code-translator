@@ -47,7 +47,7 @@ const Morse = () => {
 
     const translate = (input) => {
       if(input) {
-        let letter = morseLib[input];
+        let letter = morseLib[input] ? morseLib[input] : '';
         let newMessage = message + letter;
 
         setMessage(newMessage);
@@ -119,7 +119,10 @@ const Morse = () => {
           <h1 className='header'>Morse Interpreter</h1>
           <div className='message_box main_message'>{message}</div>
           <div className='input_container'>
-            <div className='message_box morse_current preview_left'>{morseLib[morseMessage]}</div>
+            <div className='message_box morse_current preview_left'>{
+              Object.keys(morseLib).includes(morseMessage) ? morseLib[morseMessage] : 'N/A'
+            }
+            </div>
             <div className='message_box morse_current'>{morseMessage}</div>
           </div>
           <Predictions predictions={predictions} 
