@@ -17,7 +17,7 @@ npm start
 
 I'm actively working on the following features:
 
+- Mobile port to React Native
 - Desktop functionality
 - Full WAI-ARIA compliance (mostly there minus testing)
-- Add global state so settings actually stick
 - Utilize a database to improve predictive text based on global popular phrases
