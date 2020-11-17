@@ -9,14 +9,10 @@ If you have any suggestions, please contact me at arohandutt.com!
 
 ```
 npm install
-npm run compile
 npm start
 ```
 
 # Coming Soon
-
-I'm actively working on the following features:
-
 - Mobile port to React Native
 - Desktop functionality
 - Full WAI-ARIA compliance (mostly there minus testing)
